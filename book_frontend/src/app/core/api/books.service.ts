@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environments';
   providedIn: 'root'
 })
 export class BookService {
-  private apiUrl = `${environment.backendUrl || 'http://127.0.0.1:8000/api'}/books/`;
+  private apiUrl = `${environment.backendUrl || 'http://localhost:8000/api'}/books/`;
 
   constructor(private http: HttpClient) {}
 
