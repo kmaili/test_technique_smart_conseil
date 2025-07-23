@@ -43,21 +43,22 @@ docker-compose down
 .
 ├── backend/                         # Django backend
 │   ├── books/                       # CRUD app (models, views, serializers)
-│   ├── book_api/                    # Django project config
+│   ├── book_api/                    # Django project configuration
 │   ├── manage.py
 │   ├── requirements.txt
 │   └── Dockerfile
 │
-├── frontend/                        # Angular standalone frontend
+├── frontend/                        # Angular frontend
 │   ├── src/app/
-│   │   ├── core/services/           # API service
-│   │   ├── pages/books/             # Main CRUD page (Dashboard)
-│   │   └── shared/ui/               # BookForm and BookList components
+│   │   ├── core/services/           # API service (books.service.ts)
+│   │   ├── features/books/
+│   │   │   ├── pages/book-dashboard/ # Main CRUD dashboard
+│   │   │   └── components/          # Reusable UI components (book-form, book-list)
 │   ├── angular.json
-│   ├── nginx.conf
+│   ├── nginx.conf                   # Nginx configuration for serving Angular
 │   └── Dockerfile
 │
-├── docker-compose.yml              
+├── docker-compose.yml               
 └── README.md
 ```
 
