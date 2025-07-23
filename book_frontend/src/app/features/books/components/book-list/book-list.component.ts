@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
    import { BookService } from '../../../../core/api/books.service';
    import { Router, ActivatedRoute, RouterLink } from '@angular/router';
    import { BehaviorSubject, Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
      templateUrl: './book-list.component.html',
      styleUrls: ['./book-list.component.scss']
    })
-   export class BookListComponent {
+   export class BookListComponent implements OnInit, OnDestroy {
      private booksSubject = new BehaviorSubject<any[]>([]);
      books$ = this.booksSubject.asObservable();
 
@@ -20,7 +20,12 @@ import { CommonModule } from '@angular/common';
        private bookService: BookService,
        private router: Router,
        private route: ActivatedRoute
-     ) {
+     ) {}
+     ngOnDestroy(): void {
+       // Cleanup
+       this.booksSubject.complete();
+     }
+     ngOnInit(): void {
        // Initial load
        this.bookService.getBooks().subscribe(books => {
          this.booksSubject.next(books);
