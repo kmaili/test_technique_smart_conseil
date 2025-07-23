@@ -30,6 +30,7 @@ export class BookFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Check if we're editing an existing book
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
