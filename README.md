@@ -27,8 +27,7 @@ docker-compose up --build
 ```
 
 3. Access:
-- Frontend: http://localhost  
-- API: http://localhost:8000/api/books/
+- URL: http://localhost
 
 4. Stop all containers:
 ```bash
