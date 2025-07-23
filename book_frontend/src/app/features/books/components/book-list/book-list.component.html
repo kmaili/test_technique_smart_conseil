@@ -1,0 +1,26 @@
+<table *ngIf="(books$ | async) as books" class="book-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Year</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="books.length === 0">
+      <td colspan="4" class="no-books">No books found.</td>
+    </tr>
+    <tr *ngFor="let book of books">
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.year }}</td>
+      <td>
+        <button (click)="editBook(book.id)">Edit</button>
+        <button (click)="deleteBook(book.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a routerLink="book-form">Add Book</a>

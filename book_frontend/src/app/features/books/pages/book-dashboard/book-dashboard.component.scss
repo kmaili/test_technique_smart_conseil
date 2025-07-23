@@ -1,0 +1,26 @@
+.book-dashboard {
+  max-width: 960px;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  background-color: #f7fafc;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+
+  .dashboard-header {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      color: #2d3748;
+      margin: 0;
+    }
+  }
+
+  router-outlet {
+    display: block;
+  }
+}

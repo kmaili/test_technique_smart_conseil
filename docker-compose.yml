@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./book_api
+    command: gunicorn book_api.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=0
+    networks:
+      - books_app_network
+
+  frontend:
+    build: ./book_frontend
+    ports:
+      - "80:80"
+    environment:
+      - API_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - books_app_network
+
+networks:
+  books_app_network:
+    driver: bridge

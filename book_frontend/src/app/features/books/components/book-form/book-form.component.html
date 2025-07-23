@@ -1,0 +1,19 @@
+<div class="book-form">
+  <h2>{{ isEditing ? 'Edit Book' : 'Add New Book' }}</h2>
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title:</label>
+      <input id="title" formControlName="title" required>
+    </div>
+    <div>
+      <label for="author">Author:</label>
+      <input id="author" formControlName="author" required>
+    </div>
+    <div>
+      <label for="year">Year:</label>
+      <input id="year" type="number" formControlName="year" required>
+    </div>
+    <button type="submit" [disabled]="bookForm.invalid">Save</button>
+    <button type="button" (click)="onCancel()">Cancel</button>
+  </form>
+</div>
